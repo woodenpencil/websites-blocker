@@ -1,16 +1,17 @@
-#Import libraries
+import json
 import time
 from datetime import datetime as dt
 
-#Path to the host file, redirect to local host, list of websits to block
-host_path = "D:\\newfolder\\py_projects\\hosts"
+raw = open('forbidden_wbs.json','r')
+raw_cnt=raw.read()
+host_path = input('Input your host path: ')
 redirect = "127.0.0.1"
-wb_list = ["www.netflix.com","www.facebook.com"]
 
-#Condition
+wb_list = json.loads(raw_cnt)
+print(wb_list)
 while True:
-    #Check for the current time
-    if dt(dt.now().year,dt.now().month,dt.now().day,0) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,16):
+    
+    if dt(dt.now().year,dt.now().month,dt.now().day,8) < dt.now() < dt(dt.now().year,dt.now().month,dt.now().day,17):
         print("Rihanna")
         hosts=open(host_path,'r+')
         content=hosts.read()
